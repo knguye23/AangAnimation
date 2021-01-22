@@ -1,14 +1,15 @@
 var gameEngine = new GameEngine();
 
 var ASSET_MANAGER = new AssetManager();
-ASSET_MANAGER.queueDownload("GliderWhipSide.png");
+ASSET_MANAGER.queueDownload("./spritesheets/GliderWhipSide.png");
+ASSET_MANAGER.queueDownload("./spritesheets/background.png");
 
 ASSET_MANAGER.downloadAll(function () {
 	var canvas = document.getElementById('gameWorld');
 	var ctx = canvas.getContext('2d');
 
-	var aang = new Aang(gameEngine);
 	gameEngine.init(ctx);
-	gameEngine.addEntity(aang);
+	gameEngine.addEntity(new Background(gameEngine, 0, 0));
+	gameEngine.addEntity(new Aang(gameEngine));
 	gameEngine.start();
 });
