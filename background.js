@@ -6,7 +6,7 @@ class Background {
     };
 
     draw(ctx) {
-        this.animation.drawFrame(this.gameEngine.clockTick, ctx, this.x, this.y, 2);
+        this.animation.drawFrame(this.gameEngine.clockTick, ctx, this.x, this.y, params.scale);
     }
 
     update() {
